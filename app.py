@@ -30,9 +30,11 @@ class Student(db.Model):
 
 db.create_all()
 #db.drop_all()
+
+
 @app.route('/', methods=['GET'])
 def home():
-    #TODO use JSON
+    # TODO use JSON
     examples = Student.query.all()
     db.session.commit()
     return render_template("students.html", rows=examples)
@@ -41,7 +43,10 @@ def home():
 @app.route('/add-student', methods=['POST'])
 def post_student():
 
-    new_student = Student(request.form['name'], request.form['stu_course'])   #TODO without passing primary key
+    student_dict = request.get_json('name')
+
+    new_student = Student(name=student_dict.get('name'), stu_course=student_dict.get('stu_course'))
+    # new_student = Student(request.form['name'], request.form['stu_course'])   #TODO without passing primary key
     db.session.add(new_student)
     db.session.commit()
     return jsonify(new_student.__repr__())
@@ -49,22 +54,21 @@ def post_student():
 
 @app.route('/update-student', methods=['POST'])
 def update_student():
-    print("here")
-    new_student = Student.query.filter_by(name = request.form.get('name')).first()
-    new_student.stu_course = request.form['stu_course']
-    db.session.commit()
-    return jsonify(new_student.__repr__)
 
-@app.route('/remove-student', methods=['POST'])
-def remove_student():
-
-    new_student = Student.query.filter_by(name = request.form.get('name')).first()
-
-    db.session.delete(new_student)
+    new_student = Student.query.filter_by(name=request.get_json('name').get('name')).first()
+    new_student.stu_course = request.get_json('stu_course').get('stu_course')
     db.session.commit()
     return jsonify(new_student.__repr__())
 
 
+@app.route('/remove-student', methods=['POST'])
+def remove_student():
+    # student_dict = request.get_json('name')
+
+    new_student = Student.query.filter_by(name=request.get_json('name').get('name')).first()
+    db.session.delete(new_student)
+    db.session.commit()
+    return jsonify(new_student.__repr__())
 
 
 if __name__ == '__main__':
