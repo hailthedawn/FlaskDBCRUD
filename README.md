@@ -4,20 +4,20 @@ Implements a basic CRUD API in Python Flask using a Postgre Database at the back
 
 <h2>Installation</h2>
 
-1) Download the repository to your local system.
-2) If you have Python installed, go to Step 4.
-3) Install Python 3.5. Ensure pip has also been installed by running the following:
-    python 
-    pip --version
-4) Download all packages in requirements.txt.
-    pip install -r requirements.txt
-5) Run and configure a Postgre database. (You can download pgAdmin to test the same, or the command line)
-6) Create a table called student
+ * Download the repository to your local system. <br/>
+ * If you have Python installed, go to Step 4. <br/>
+ * Install Python 3.5. Ensure pip has also been installed by running the following: <br/>
+    python <br/>
+    pip --version <br/>
+ * Download all packages in requirements.txt. <br/>
+    pip install -r requirements.txt <br/>
+ * Run and configure a Postgre database. (You can download pgAdmin to test the same, or the command line) <br/>
+ * Create a table called student <br/>
 
 <h2>Usage</h2>
 
-1) Run dbManip.py
-2) Launch localhost:5000/
+ * Run dbManip.py <br/>
+ * Launch localhost:5000/
 
 
 
