@@ -2,7 +2,7 @@
 
 Implements a basic CRUD API in Python Flask using a Postgre Database at the backend.
 
-#[[##]]# Installation
+<h2>Installation</h2>
 
 1) Download the repository to your local system.
 2) If you have Python installed, go to Step 4.
@@ -11,13 +11,17 @@ Implements a basic CRUD API in Python Flask using a Postgre Database at the back
     pip --version
 4) Download all packages in requirements.txt.
     pip install -r requirements.txt
+5) Run and configure a Postgre database. (You can download pgAdmin to test the same, or the command line)
+6) Create a table called student
 
-#[[#Usage#]]# 
+<h2>Usage</h2>
 
-Run dbManip.py
+1) Run dbManip.py
+2) Launch localhost:5000/
 
 
-#[[#Contributing#]]# 
+
+<h2>Contributing</h2>
 
   * Fork it! 
   * Create your feature branch: `git checkout -b my-new-feature` 
@@ -25,5 +29,5 @@ Run dbManip.py
   * Push to the branch: `git push origin my-new-feature`
   * Submit a pull request!
 
-#[[##]]# License
+
 
