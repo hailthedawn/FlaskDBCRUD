@@ -12,12 +12,12 @@ Implements a basic CRUD API in Python Flask using a Postgre Database at the back
 4) Download all packages in requirements.txt.
     pip install -r requirements.txt
 
-#[[##]]# Usage
+#[[#Usage#]]# 
 
 Run dbManip.py
 
 
-#[[##]]# Contributing
+#[[#Contributing#]]# 
 
   * Fork it! 
   * Create your feature branch: `git checkout -b my-new-feature` 
