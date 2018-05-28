@@ -1,48 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {{rows}}
+{% extends 'base.html' %}
+{% block header %}
+
+    {% if students is not none%}
+        <h1> List of Students</h1>
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if students is not none%}
+        <!--{% for student in students %}-->
+        <!--<p contenteditable=""><a href="/student/{{student.id}}"></a></p>-->
+        <!--{% endfor %}-->
+        {{students}}
+    {% endif %}
+
+{% endblock %}
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+    <!--{{rows}}-->
+        <!--&lt;!&ndash;<label>Username: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="name" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>Course: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="stu_course" type="text" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<form method="post" action="/student">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>Username: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="name" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>Course: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="stu_course" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="Add to database" type="submit" value="Add student">&ndash;&gt;-->
+        <!--&lt;!&ndash;</form>&ndash;&gt;-->
+    <!--&lt;!&ndash;<form method="post" action="/delete">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>Username: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="name" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>Course: </label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input name="stu_course" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input type="submit" value="Remove student">&ndash;&gt;-->
+          <!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+
+
+<!--<form method="post" action="/student/">-->
         <!--<label>Username: </label>-->
         <!--<input name="name" type="text" />-->
         <!--<br/>-->
         <!--<label>Course: </label>-->
         <!--<input name="stu_course" type="text" />-->
-
-    <!--<form method="post" action="/student">-->
-        <!--<label>Username: </label>-->
-        <!--<input name="name" type="text" />-->
         <!--<br/>-->
-        <!--<label>Course: </label>-->
-        <!--<input name="stu_course" type="text" />-->
-        <!--<input name="Add to database" type="submit" value="Add student">-->
-        <!--</form>-->
-    <!--<form method="post" action="/delete">-->
-        <!--<label>Username: </label>-->
-        <!--<input name="name" type="text" />-->
-        <!--<br/>-->
-        <!--<label>Course: </label>-->
-        <!--<input name="stu_course" type="text" />-->
-        <!--<br/>-->
-        <!--<input type="submit" value="Remove student">-->
-          <!--</form>-->
+        <!--<input type="submit" value="Update student">-->
+
+    <!--</form>-->
 
 
-
-<form method="post" action="/student/">
-        <label>Username: </label>
-        <input name="name" type="text" />
-        <br/>
-        <label>Course: </label>
-        <input name="stu_course" type="text" />
-        <br/>
-        <input type="submit" value="Update student">
-
-    </form>
-
-
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
