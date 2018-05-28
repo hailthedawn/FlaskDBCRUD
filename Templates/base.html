@@ -1,0 +1,27 @@
+<!--(Template taken (and modified) from: http://flask.pocoo.org/docs/1.0/tutorial/templates/)-->
+<!doctype html>
+<html>
+
+    <title>{% block title %}{% endblock %} - Flaskr</title>
+
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+
+    <nav>
+      <h1>Student Database</h1>
+
+    </nav>
+
+    <section class="content">
+      <header>
+        {% block header %}
+          {% endblock %}
+      </header>
+      {% for message in messages %}
+        <!--<div class="flash">message.text</div>-->
+        {{message.text}}
+      {% endfor %}
+      {% block content %}{% endblock %}
+    </section>
+
+
+</html>
