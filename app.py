@@ -57,21 +57,12 @@ def show_students():
     Displays all students in the database.
     :return: all students in html format
     """
-    # TODO use JSON
-    all_students = {}
-    try:
-        entries=Student.query.all()
 
-        if(len(entries) == 0):
-            return jsonify("No students in database.")
+    entries = Student.query.all()
+    db.session.commit()
+    # return show_students_json_version(entries) # uncomment if you wish to return JSON
 
-        db.session.commit()
-        return jsonify([entry.serialize() for entry in entries])
-
-    except Exception as ex:
-        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
-        message = template.format(type(ex).__name__, ex.args)
-        print(message)
+    return show_students_html_version(entries) #uncomment to return HTML on a webpage
 
 
 
@@ -144,6 +135,45 @@ def check_validity(input_dict):
         error_dict['course'] = 'was null'
     error_dict['error'] = error
     return error_dict
+
+
+
+def show_student_json_version(entries):
+    """
+
+    :param entries: all entries in Student database
+    :return: result in JSON format
+    """
+    try:
+
+        if(len(entries) == 0):
+            return jsonify("No students in database.")
+
+        return jsonify([entry.serialize() for entry in entries])
+
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        print(message)
+
+def show_students_html_version(entries):
+    """
+    :param entries: all entries in Student database
+    :return: result in HTML format (as a template)
+    """
+    messages = [{}]
+    try:
+        if (len(entries) == 0):
+            messages = [{'text':'No students in database.'}]
+            return render_template("students.html", messages=messages, students_exist=False)
+
+        return render_template("students.html", students=entries, students_exist=True)
+
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        return render_template("students.html", messages=messages, students_exist=False)
+
 
 
 if __name__ == '__main__':
